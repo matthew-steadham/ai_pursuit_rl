@@ -1,6 +1,6 @@
 # 2D Pursuit–Evasion RL
 
-**Purpose:** Safe, research project to train an autonomous **interceptor drone** to capture a moving target in a 2‑D plane with **thrust limits**, **sensor noise**, and **process noise** under **partial observability**. Architectures: **LSTM (3×256)** actor, MLP critics; Algorithms: **DDPG** and **SAC** from scratch (PyTorch).
+**Purpose:** Safe, research project to train an autonomous **interceptor** to capture a moving target in a 2‑D plane with **thrust limits**, **sensor noise**, and **process noise** under **partial observability**. Architectures: **LSTM (3×256)** actor, MLP critics; Algorithms: **DDPG** and **SAC** from scratch (PyTorch).
 
 ## Quickstart (VS Code)
 
