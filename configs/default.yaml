@@ -1,0 +1,51 @@
+# Default training & environment configuration
+
+seed: 70
+device: "mps"   # "cpu" or "cuda"
+
+env:
+  dt: 0.05
+  max_steps: 1200
+  arena_size: 300.0          # square arena: [-size, size]^2
+  capture_radius: 15
+  mass: 1.0
+  max_accel: 10.0
+  max_speed: 40.0
+  sensor_noise_std: 0.04     # absolute std applied to each obs component
+  process_noise_std: 0.04    # accel perturbation in world units
+  target_speed: 8.0
+  target_turn_std: 0.2       # random turn rate std (rad/step)
+  init_min_sep: 200.0
+  init_max_sep: 200.0
+
+replay:
+  capacity: 200000
+  min_init_episodes: 25
+  seq_len: 48
+  batch_size: 96
+
+model:
+  obs_dim: 6
+  action_dim: 2
+  hidden_size: 256
+  mlp_hidden: 256
+  mlp_layers: 2
+
+ddpg:
+  gamma: 0.99
+  tau: 0.005
+  actor_lr: 3.0e-4
+  critic_lr: 3.0e-4
+  noise_std: 0.2            # exploration noise (action space is [-1,1])
+  grad_clip: 1.0
+  updates_per_step: 1
+
+sac:
+  gamma: 0.98
+  tau: 0.02
+  actor_lr: 1.0e-4
+  critic_lr: 1.0e-4
+  alpha_lr: 5.0e-5
+  target_entropy_scale: -1.5   # target entropy = scale * action_dim
+  grad_clip: 1.0
+  updates_per_step: 0.5
