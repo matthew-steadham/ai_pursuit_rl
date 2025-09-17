@@ -11,7 +11,6 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install -r requirements.txt
-      # Ensure CPU Torch is present even if wheel resolution gets weird:
       - run: pip install --index-url https://download.pytorch.org/whl/cpu torch --upgrade
       - run: pip install pytest
-      - run: pytest -q
+      - run: PYTHONPATH=$PWD pytest -q
